@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'lcd';
+  src: url('/fonts/lcd.ttf');
+}
+
+@font-face {
+	font-family: 'segmental';
+	src: url('/fonts/segmental.ttf');
+}
+
+body
+{
+	font-family: sans-serif;
+	margin: 0;
+}
+
+.container
+{
+	display: block; 
+	width: 990px; 
+	min-width: 990px; 
+	height: 580px; 
+	min-height: 550px; 
+	margin-top: 25px;
+	margin-left: auto; 
+	margin-right: auto;
+	padding: 25px; 
+	border: solid 1px #000000;
+	background-image: url(../images/background.jpg);
+	border-radius: 25px;
+}
+
+.segmental-panel
+{
+	font-family: 'segmental'; 
+	font-size: 20px; 	
+	width: 600px; 
+	border: solid 2px silver;
+	border-radius: 5px; 
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+.lcd-panel
+{
+	font-family: 'segmental'; 
+	font-size: 100px; 
+	width: 600px; 
+	background-color: rgba(0, 0, 0, 0.75);
+	color: #32CD32; 
+	padding: 10px; 
+	border: solid 3px silver;
+	border-radius: 10px; 
+	text-align: center;"
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+/** html .clearfix { height: 1%; }
+.clearfix { display: block; }*/
+/* close commented backslash hack */

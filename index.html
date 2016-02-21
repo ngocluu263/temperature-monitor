@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>John Pili - Temperature Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="/css/site.css">
+	<script src="/scripts/jquery-2.2.0.min.js"></script>
+	<script src="/scripts/socket.io-1.4.5.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div style="width: 100%">
+			<img src="images/logo.png" style="width: 200px;" />			
+		</div>
+		<div style="min-height: 450px; height: 450px;">
+			<div class="clearfix" style="width: 100%; padding-top: 20px;">
+				<div style="margin-left: auto; margin-right: auto; width: 600px;">
+					<div style="font-size: 20px; color: #ffffff; text-shadow: 0px 1px 1px #4d4d4d;">
+						Date / Time
+					</div>
+					<div id="dateTimePanel" class="segmental-panel" style="color: red;"></div>
+				</div>
+			</div>
+			<div class="clearfix" style="width: 100%; padding-top: 20px;">
+				<div style="margin-left: auto; margin-right: auto; width: 600px;">
+					<div style="font-size: 20px; color: #ffffff; text-shadow: 0px 1px 1px #4d4d4d;">
+						Temperature °C
+					</div>
+					<div id="temperature" class="lcd-panel">
+						0.00
+					</div>
+				</div>
+			</div>
+			<div class="clearfix" style="width: 100%; padding-top: 20px;">
+				<div style="margin-left: auto; margin-right: auto; width: 600px;">
+					<div style="font-size: 20px; color: #ffffff;">
+						Humidity %
+					</div>
+					<div id="humidity" class="lcd-panel">
+						0.00
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="clearfix" style="width: 100%; padding-top: 20px;">
+				<div style="float: right; color: silver; text-shadow: 0px 1px 1px #4d4d4d;">
+					Developed by: John Pili
+				</div>
+			</div>
+		</div>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			tick();
+			setInterval(tick,1000);
+		});
+
+                var s = io.connect('http://192.168.1.103:9000');
+                s.on('notification1', updatePanels);
+
+                function updatePanels(data) {
+                	var _data = JSON.parse(data);
+	       		$('#temperature').html(_data.temperature);
+			$('#humidity').html(_data.relativeHumidity);
+		}
+
+		function tick(){
+			var dateTime=new Date();
+			var options = {
+    		year: "numeric", month: "2-digit", day: "numeric", 
+    		hour12: "false", hour: "2-digit", minute: "2-digit"
+			};
+
+			$('#dateTimePanel').html(dateTime.toLocaleDateString("en-GB", options) + ' ' + dateTime.toLocaleTimeString('en-GB', options));
+		}
+	</script>
+
+	</div>
+</body>
+</html>
