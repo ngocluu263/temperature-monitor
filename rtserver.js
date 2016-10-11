@@ -54,7 +54,7 @@ function randomString() {
 
 function main() {
   var broker = zmq.socket('router');
-  broker.bindSync('tcp://172.16.4.121:5671');
+  broker.bindSync('tcp://127.0.0.1:5671');
 
   var endTime = Date.now() + 5000
     , workersFired = 0;
@@ -65,7 +65,7 @@ function main() {
       , now = Date.now();
 
     console.log(args);
-    
+
     if (now < endTime) {
       broker.send([identity, '', 'Work harder']);
     } else {
