@@ -1,0 +1,15 @@
+
+Install ZEROMQ Centos 7:
+
+yum install zeromq
+
+For development files:
+
+yum install zeromq-devel
+
+npm install -g node-gyp
+
+npm install zmq
+
+node rtdealer.js
+
