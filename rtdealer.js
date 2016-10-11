@@ -23,7 +23,7 @@ function workerTask() {
   var dealer = zmq.socket('dealer');
   dealer.identity = randomString();
 
-  dealer.connect('tcp://localhost:5671');
+  dealer.connect('tcp://172.16.4.121:5671');
 
   var total = 0;
 
