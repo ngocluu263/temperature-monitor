@@ -44,7 +44,7 @@ function workerTask() {
       return;
     }
     total++;
-
+    console.log(sendMessage);
     setTimeout(sendMessage, randomBetween(0, 500));
   });
 
