@@ -37,7 +37,7 @@ app.get('/', function(req, res,next) {
 server.listen(9000);
 
 io.sockets.on('connection', function(socket){
-    var path = '/json/';
+    var path = 'json/';
     fs.watchFile('' + path + 'temp.json', function(curr, prev) {
         fs.readFile('' + path + 'temp.json', 'utf8', function(err, data) {
         if(err) 
