@@ -67,7 +67,7 @@ function main() {
     //console.log(args[0]);
 
     if (now < endTime) {
-      broker.send([identity, 'AAA', 'Work harder']);
+      broker.send([identity, 'AAA', {'Hi Boss':'aaa','ssss':'fff'}]);
     } else {
       broker.send([identity, 'AAA', 'Fired!']);
       workersFired++;

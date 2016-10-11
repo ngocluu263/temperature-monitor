@@ -28,7 +28,7 @@ function workerTask() {
   var total = 0;
 
   var sendMessage = function () {
-    dealer.send(['AAA', 'Hi Boss']);
+    dealer.send(['AAA', {'Hi Boss':'aaa','ssss':'fff'}]);
   };
 
   //  Get workload from broker, until finished
