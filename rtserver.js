@@ -54,7 +54,7 @@ function randomString() {
 
 function main() {
   var broker = zmq.socket('router');
-  broker.bindSync('tcp://*:5671');
+  broker.bindSync('tcp://localhost:5671');
 
   var endTime = Date.now() + 5000
     , workersFired = 0;
