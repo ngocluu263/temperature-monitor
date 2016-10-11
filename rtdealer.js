@@ -38,13 +38,7 @@ function workerTask() {
     var workload = args[1].toString('utf8');
     var workload2 = args.toString('utf8');
 
-    console.log(args[1]);
-    var obj = args[1];
-    var output = '';
-    for (var property in obj) {
-      output += property + ': ' + obj[property]+'; ';
-    }
-    console.log(output);
+    console.log(workload2);
 
     if (workload === 'Fired!') {
       console.log('Completed: '+total+' tasks ('+dealer.identity+')');
