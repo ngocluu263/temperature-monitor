@@ -56,7 +56,7 @@
 			setInterval(tick,1000);
 		});
 
-                var s = io.connect('http://192.168.1.103:9000');
+                var s = io.connect('http://localhost:9000');
                 s.on('notification1', updatePanels);
 
                 function updatePanels(data) {
