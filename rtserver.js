@@ -64,6 +64,8 @@ function main() {
       , identity = args[0]
       , now = Date.now();
 
+    console.log(args);
+    
     if (now < endTime) {
       broker.send([identity, '', 'Work harder']);
     } else {
