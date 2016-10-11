@@ -83,10 +83,10 @@ function main() {
   }
 }
 
-// if (cluster.isMaster) {
-//   main();
+if (cluster.isMaster) {
+  main();
 // } else  {
 //   workerTask();
 // }
 
-main();
+}
