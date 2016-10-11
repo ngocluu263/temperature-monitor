@@ -67,9 +67,9 @@ function main() {
     //console.log(args[0]);
 
     if (now < endTime) {
-      broker.send([identity, '', 'Work harder']);
+      broker.send([identity, 'AAA', 'Work harder']);
     } else {
-      broker.send([identity, '', 'Fired!']);
+      broker.send([identity, 'AAA', 'Fired!']);
       workersFired++;
       if (workersFired === NBR_WORKERS) {
         setImmediate(function () {
