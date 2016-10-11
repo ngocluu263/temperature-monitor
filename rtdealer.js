@@ -38,7 +38,7 @@ function workerTask() {
     var workload = args[1].toString('utf8');
     var workload2 = args.toString('utf8');
 
-    console.log(JSON.stringify(args[1]));
+    console.log(args[1].toSource());
 
     if (workload === 'Fired!') {
       console.log('Completed: '+total+' tasks ('+dealer.identity+')');
