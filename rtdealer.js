@@ -52,40 +52,41 @@ function workerTask() {
   sendMessage();
 }
 
-function main() {
-  var broker = zmq.socket('router');
-  broker.bindSync('tcp://*:5671');
+// function main() {
+//   var broker = zmq.socket('router');
+//   broker.bindSync('tcp://*:5671');
+//
+//   var endTime = Date.now() + 5000
+//     , workersFired = 0;
+//
+//   broker.on('message', function () {
+//     var args = Array.apply(null, arguments)
+//       , identity = args[0]
+//       , now = Date.now();
+//
+//     if (now < endTime) {
+//       broker.send([identity, '', 'Work harder']);
+//     } else {
+//       broker.send([identity, '', 'Fired!']);
+//       workersFired++;
+//       if (workersFired === NBR_WORKERS) {
+//         setImmediate(function () {
+//           broker.close();
+//           cluster.disconnect();
+//         });
+//       }
+//     }
+//   });
+//
+//   for (var i=0;i<NBR_WORKERS;i++) {
+//     cluster.fork();
+//   }
+// }
 
-  var endTime = Date.now() + 5000
-    , workersFired = 0;
+// if (cluster.isMaster) {
+//   main();
+// } else  {
+//   workerTask();
+// }
 
-  broker.on('message', function () {
-    var args = Array.apply(null, arguments)
-      , identity = args[0]
-      , now = Date.now();
-
-    if (now < endTime) {
-      broker.send([identity, '', 'Work harder']);
-    } else {
-      broker.send([identity, '', 'Fired!']);
-      workersFired++;
-      if (workersFired === NBR_WORKERS) {
-        setImmediate(function () {
-          broker.close();
-          cluster.disconnect();
-        });
-      }
-    }
-  });
-
-  for (var i=0;i<NBR_WORKERS;i++) {
-    cluster.fork();
-  }
-}
-
-if (cluster.isMaster) {
-  main();
-} else  {
-  workerTask();
-}
-
+workerTask();
