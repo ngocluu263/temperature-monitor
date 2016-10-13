@@ -58,14 +58,13 @@
 
                 var s = io.connect('http://172.16.4.121:9000');
 				//var sw = io.message("Test");
-                s.on('notification1', updatePanels());
+                s.on('notification1', updatePanels);
 
-                function updatePanels(data) {
-                	var _data = JSON.parse(data);
-					$('#temperature').html(_data.temperature);
-					$('#humidity').html(_data.relativeHumidity);
+		function updatePanels(data) {
+			var _data = JSON.parse(data);
+			$('#temperature').html(_data.temperature);
+			$('#humidity').html(_data.relativeHumidity);
 		}
-
 		function tick(){
 			var dateTime=new Date();
 			var options = {
