@@ -41,10 +41,10 @@ io.sockets.on('connection', function(socket){
     fs.watchFile('' + path + 'temp.json', function(curr, prev) {
         fs.readFile('' + path + 'temp.json', 'utf8', function(err, data) {
         if(err) 
-	{
-	    //throw err;
-	    console.log(err);
-	}
+            {
+                //throw err;
+                console.log(err);
+            }
         var json = data;
         console.log(data);
         socket.volatile.emit('notification1', json);
@@ -53,10 +53,10 @@ io.sockets.on('connection', function(socket){
 
     fs.readFile('' + path + 'temp.json', 'utf8', function(err, data) {
         if(err)
-        {
-            //throw err;
-            console.log(err);
-        }
+            {
+                //throw err;
+                console.log(err);
+            }
         var json = data;
         console.log(data);
         socket.volatile.emit('notification1', json);
